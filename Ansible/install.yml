@@ -1,0 +1,20 @@
+---
+- hosts: webservers
+  become: true
+
+  tasks:
+    - name: install docker.io
+      apt: name=docker.io update_cache=yes state=latest
+
+    - name: install python3-pip    
+      apt: 
+      name=docker.io
+
+    - name: pip install docker
+      pip: 
+      name: docker.io
+
+    - name: install container
+      docker_container:
+      name: 
+      image: cyberxsecurity/dvwa
